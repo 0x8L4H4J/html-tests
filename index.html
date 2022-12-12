@@ -20,46 +20,6 @@
             /* set the z-index to a lower value than the div element */
             z-index: 1;
         }
-
-        /* Create a window with glowing white borders */
-        #window {
-            position: absolute;
-            z-index: 1;
-            top: 50%;
-            left: 50%;
-            width: 50%;
-            height: auto;
-            margin-top: -25%;
-            margin-left: -25%;
-            background-color: rgba(51, 51, 51, 0.308);
-            box-shadow: 0 0 10px 10px white;
-            opacity: 1;
-        }
-
-        #window::before {
-            content: "Blanche - 0x8L4H4J";
-            position: absolute;
-            z-index: 2;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 32px;
-            text-align: center;
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00e5, 0 0 70px #ff00e5, 0 0 80px #ff00e5, 0 0 100px #ff00e5, 0 0 150px #ff00e5;
-            animation: glowing 2s ease-in-out infinite;
-            margin-top: 50px;
-        }
-
-        @keyframes glowing {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 70px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc;
-            }
-
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff99cc, 0 0 50px #ff99cc, 0 0 80px #ff99cc, 0 0 100px #ff99cc, 0 0 150px #ff99cc, 0 0 200px #ff99cc;
-            }
-        }
     </style>
     <canvas id="canvas"></canvas>
     <div id="window"></div>
