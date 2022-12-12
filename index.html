@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="icon" href="https://www.blanche.dev/favicon.ico">
+
+<head>
+    <link rel="icon" href="/favicon.ico">
     <title>Blanche's Lovely Website</title>
-  </head>
+</head>
+
+<script>
+    var targetDate = new Date("December 25, 2022 00:00:00 GMT+0200");
+    var countdownInterval = setInterval(function () {
+        var currentDate = new Date();
+        var timeRemaining = targetDate - currentDate;
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+        if (timeRemaining <= 0) {
+            clearInterval(countdownInterval);
+        }
+    }, 1000);
+</script>
 
 <body>
     <style>
@@ -23,7 +43,6 @@
         }
     </style>
     <canvas id="canvas"></canvas>
-    <div id="window"></div>
     <script>
         // get the canvas element
         const canvas = document.getElementById('canvas');
@@ -92,6 +111,14 @@
         // start the animation
         animate();
     </script>
+
+    <p>
+        Time remaining:
+        <span id="days"></span> days
+        <span id="hours"></span> hours
+        <span id="minutes"></span> minutes
+        <span id="seconds"></span> seconds
+    </p>
 </body>
 
 </html>
