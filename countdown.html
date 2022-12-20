@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta property="og:title" content="Blanche's Lovely Website <3">
+    <meta property="og:image" content="/embedBanner.jpg">
+    <meta property="og:description" content="Your favorite girl website! :D">
+    <link rel="icon" href="/favicon.ico">
+    <title>Blanche's Lovely Website</title>
+    <style>
+        #countdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: -5px;
+            font-size: 96px;
+            font-family: gill sans, sans-serif;
+            color: rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 10px white;
+        }
+
+        @font-face {
+            font-family: "VFont";
+            src: url("/font1.ttf");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        body {
+            margin: 0;
+            background: #000000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        canvas {
+            display: block;
+            /* set the z-index to a lower value than the div element */
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="countdown"></p>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const ctx = canvas.getContext('2d');
+        class Particle {
+            constructor() {
+                this.pos = { x: Math.random() * canvas.width, y: Math.random() * canvas.height };
+                this.vel = { x: Math.random() - 0.5, y: Math.random() - 0.5 };
+                this.size = Math.random() * 3;
+            }
+
+            update() {
+                this.pos.x += this.vel.x;
+                this.pos.y += this.vel.y;
+                if (this.pos.x < 0 || this.pos.x > canvas.width) this.vel.x = -this.vel.x;
+                if (this.pos.y < 0 || this.pos.y > canvas.height) this.vel.y = -this.vel.y;
+            }
+
+            draw() {
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(this.pos.x, this.pos.y, this.size, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+        const particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+
+    <script>
+        var countDownDate = new Date("Dec 25, 2022 00:00:00 GMT+2").getTime();
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                days.toString().padStart(2, "0") + ":" +
+                hours.toString().padStart(2, "0") + ":" +
+                minutes.toString().padStart(2, "0") + ":" +
+                seconds.toString().padStart(2, "0");
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Christmas Time!! :D";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
