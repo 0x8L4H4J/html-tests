@@ -3,6 +3,44 @@
   src: url('/src/coolvetica.otf');
 }
 
+@keyframes trans-glow {
+  0% {
+    box-shadow: 0 0 20px rgb(91, 206, 250);
+  }
+  50% {
+    box-shadow: 0 0 20px rgb(245, 169, 184);
+  }
+  100% {
+    box-shadow: 0 0 20px rgb(91, 206, 250);
+  }
+}
+
+.glowing-element {
+  animation: trans-glow 6s ease infinite;
+}
+
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 20px rgb(91, 206, 250);
+  }
+  25% {
+    text-shadow: 0 0 20px rgb(245, 169, 184);
+  }
+  50% {
+    text-shadow: 0 0 20px rgb(255, 255, 255);
+  }
+  75% {
+    text-shadow: 0 0 20px rgb(245, 169, 184);
+  }
+  100% {
+    text-shadow: 0 0 20px rgb(91, 206, 250);
+  }
+}
+
+.glowing-text {
+  animation: text-glow 6s ease infinite;
+}
+
 nav {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.1);

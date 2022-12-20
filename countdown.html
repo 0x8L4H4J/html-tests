@@ -5,8 +5,9 @@
     <meta property="og:title" content="Blanche's Lovely Website <3">
     <meta property="og:image" content="/embedBanner.jpg">
     <meta property="og:description" content="Your favorite girl website! :D">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/src/favicon.ico">
     <title>Blanche's Lovely Website</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <style>
         #countdown {
             position: absolute;
@@ -15,16 +16,9 @@
             transform: translate(-50%, -50%);
             margin-top: -5px;
             font-size: 96px;
-            font-family: gill sans, sans-serif;
+            font-family: 'Coolvetica', Arial, sans-serif;
             color: rgba(255, 255, 255, 0.5);
             text-shadow: 0 0 10px white;
-        }
-
-        @font-face {
-            font-family: "VFont";
-            src: url("/font1.ttf");
-            font-style: normal;
-            font-weight: normal;
         }
 
         body {
@@ -40,12 +34,37 @@
             /* set the z-index to a lower value than the div element */
             z-index: 1;
         }
+
+        .centered-text {
+            font-family: 'Coolvetica', Arial, sans-serif;
+            font-size: 96px;
+            position: absolute;
+            top: 70%;
+            color: rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 10px white;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li>
+                <ab><img class="navlogo" src="src/img/favicon.ico" alt="Blanche's Logo"></ab>
+            </li>
+            <li><a href="https://blanche.dev/">Home</a></li>
+            <li><a href="https://blanche.dev/countdown.html">Countdown</a></li>
+            <li><a href="https://blanche.dev/socials.html">Socials</a></li>
+        </ul>
+    </nav>
+
     <p id="countdown"></p>
     <canvas id="canvas"></canvas>
+    <div class="centered-text glowing-text">Until Christmas! :D</div>
+
 
     <script>
         const canvas = document.getElementById('canvas');
