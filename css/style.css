@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('/src/coolvetica.otf');
+}
+
+nav {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  right: 0;
+  color: rgb(166, 159, 199);
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.navlogo {
+  max-height: 35px;
+  max-width: 35px;
+}
+
+nav ul {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  margin: 0;
+  padding: 0;
+  line-height: 50px;
+}
+
+nav a {
+  font-family: 'Coolvetica', Arial, sans-serif;
+  height: 50px;
+  line-height: 50px;
+  text-decoration: none;
+  padding: 0 15px;
+  display: flex;
+  color: rgb(180, 170, 234);
+  text-decoration: none;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+nav ab {
+  font-family: 'Coolvetica', Arial, sans-serif;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-decoration: none;
+  padding: 0 15px;
+  display: flex;
+  color: rgb(180, 170, 234);
+  text-decoration: none;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.221);
+}
