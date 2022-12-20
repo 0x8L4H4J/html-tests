@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta property="og:title" content="Blanche's Lovely Website <3">
     <meta property="og:image" content="/embedBanner.jpg">
     <meta property="og:description" content="Your favorite girl website! :D">
-
-    <style>
-        @font-face {
-          font-family: "VFont";
-          src: url("/font1.ttf");
-          font-style: normal;
-          font-weight: normal;
-        }
-    </style>
-
     <link rel="icon" href="/favicon.ico">
     <title>Blanche's Lovely Website</title>
     <style>
@@ -22,16 +13,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            margin-top: -5px;
             font-size: 96px;
             font-family: gill sans, sans-serif;
             color: rgba(255, 255, 255, 0.5);
             text-shadow: 0 0 10px white;
         }
-    </style>
-</head>
 
-<body>
-    <style>
+        @font-face {
+            font-family: "VFont";
+            src: url("/font1.ttf");
+            font-style: normal;
+            font-weight: normal;
+        }
+
         body {
             margin: 0;
             background: #000000;
@@ -46,6 +41,9 @@
             z-index: 1;
         }
     </style>
+</head>
+
+<body>
     <p id="countdown"></p>
     <canvas id="canvas"></canvas>
 
