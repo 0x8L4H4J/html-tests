@@ -16,6 +16,12 @@
 
 <body>
     <div class="snow"></div>
+
+    <div id="pause-play-button">
+        <img id="pause-image" src="src/img/pause.png" alt="Pause button">
+        <img id="play-image" src="src/img/play.png" alt="Play button">
+    </div>
+
     <nav>
         <ul>
             <li><ab><img class="navlogo" src="src/img/favicon.ico" alt="Blanche's Logo"></ab></li>
@@ -24,6 +30,26 @@
             <li><a href="https://blanche.dev/socials.html">Socials</a></li>
         </ul>
     </nav>
+
+    <script>
+        const button = document.getElementById('pause-play-button');
+        const element = document.querySelector('.snow');
+
+        const pauseImage = document.getElementById('pause-image');
+        const playImage = document.getElementById('play-image');
+      
+        button.addEventListener('click', () => {
+          if (element.style.animationPlayState === 'paused') {
+            element.style.animationPlayState = 'running';
+            pauseImage.style.display = 'block';
+            playImage.style.display = 'none';
+          } else {
+            element.style.animationPlayState = 'paused';
+            pauseImage.style.display = 'none';
+            playImage.style.display = 'block';
+          }
+        });
+      </script>
 </body>
 
 </html>

@@ -45,6 +45,31 @@
             transform: translate(-50%, -50%);
             text-align: center;
         }
+
+
+        #pause-play-button {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #pause-image {
+            display: block;
+            max-width: 24px;
+            max-height: 24px;
+        }
+
+        #play-image {
+            display: none;
+            max-width: 24px;
+            max-height: 24px;
+        }
     </style>
 </head>
 
@@ -60,12 +85,19 @@
         </ul>
     </nav>
 
+    <div id="pause-play-button">
+        <img id="pause-image" src="src/img/pause.png" alt="Pause button">
+        <img id="play-image" src="src/img/play.png" alt="Play button">
+    </div>
+
     <p id="countdown"></p>
     <canvas id="canvas"></canvas>
     <div class="centered-text glowing-text">Until Christmas! :D</div>
 
     <script>
         const canvas = document.getElementById('canvas');
+        const pauseImage = document.getElementById('pause-image');
+        const playImage = document.getElementById('play-image');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         const ctx = canvas.getContext('2d');
@@ -95,15 +127,40 @@
             particles.push(new Particle());
         }
 
+        let animationId;
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
             }
-            requestAnimationFrame(animate);
+            animationId = requestAnimationFrame(animate);
         }
         animate();
+
+        const button = document.getElementById('pause-play-button');
+        button.addEventListener('click', () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+                pauseImage.style.display = 'none';
+                playImage.style.display = 'block';
+            } else {
+                animate();
+                pauseImage.style.display = 'block';
+                playImage.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            } else {
+                animate();
+            }
+        });
+
     </script>
 
     <script>
