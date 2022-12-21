@@ -9,3 +9,27 @@ video {
     position: fixed;
     z-index: -1;
 }
+
+#pause-play-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pause-image {
+    display: block;
+    max-width: 24px;
+    max-height: 24px;
+}
+
+#play-image {
+    display: none;
+    max-width: 24px;
+    max-height: 24px;
+}

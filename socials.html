@@ -16,7 +16,11 @@
 </head>
 
 <body>
-    <video autoplay muted loop src="src/img/bgSky.mp4" poster="src/img/bgSkyPoster.png"></video>
+    <video id="bg-video" autoplay muted loop src="src/img/bgSky.mp4" poster="src/img/bgSkyPoster.png"></video>
+    <div id="pause-play-button">
+        <img id="pause-image" src="src/img/pause.png" alt="Pause button">
+        <img id="play-image" src="src/img/play.png" alt="Play button">
+    </div>
     <nav>
         <ul>
             <li>
@@ -31,21 +35,21 @@
     <div class="boxes-container">
         <div class="twbox">
             <div class="top-right">
-                <img src="src/img/twt.png" alt="Twitter" class="logo">
+                <img src="src/img/soc/twt.png" alt="Twitter" class="logo">
             </div>
             <div class="image-container">
-                <img src="src/img/pfpSq.jpg" alt="Image" class="twimage">
+                <img src="src/img/soc/pfpSq.jpg" alt="Image" class="twimage">
             </div>
             <h1 class="user-text">Twitter (Main)</h1>
-            <a href="https://twitter.com/omori667" class="twbutton">@omori667</a>
+            <a href="https://twitter.com/soc/omori667" class="twbutton">@omori667</a>
         </div>
 
         <div class="twbox">
             <div class="top-right">
-                <img src="src/img/twt.png" alt="Twitter" class="logo">
+                <img src="src/img/soc/twt.png" alt="Twitter" class="logo">
             </div>
             <div class="image-container">
-                <img src="src/img/pfpPrivSq.jpg" alt="Image" class="twimage">
+                <img src="src/img/soc/pfpPrivSq.jpg" alt="Image" class="twimage">
             </div>
             <h1 class="user-text">Twitter (🔒)</h1>
             <a href="https://twitter.com/omori668" class="twbutton">@omori668</a>
@@ -53,20 +57,20 @@
 
         <div class="discbox">
             <div class="top-right">
-                <img src="src/img/discord.png" alt="Discord" class="logo">
+                <img src="src/img/soc/discord.png" alt="Discord" class="logo">
             </div>
             <div class="image-container">
-                <img src="src/img/pfpSq.jpg" alt="Image" class="discimage">
+                <img src="src/img/soc/pfpSq.jpg" alt="Image" class="discimage">
             </div>
             <h1 class="user-text">Omori#0667</h1>
         </div>
 
         <div class="igbox">
             <div class="top-right">
-                <img src="src/img/ig.png" alt="Instagram" class="logo">
+                <img src="src/img/soc/ig.png" alt="Instagram" class="logo">
             </div>
             <div class="image-container">
-                <img src="src/img/igSq.jpg" alt="Image" class="igimage">
+                <img src="src/img/soc/igSq.jpg" alt="Image" class="igimage">
             </div>
             <h1 class="user-text">Instagram</h1>
             <a href="https://instagram.com/@omori.ehe" class="igbutton">@omori.ehe</a>
@@ -74,10 +78,10 @@
 
         <div class="scbox">
             <div class="top-right">
-                <img src="src/img/sc.png" alt="SoundCloud" class="logo">
+                <img src="src/img/soc/sc.png" alt="SoundCloud" class="logo">
             </div>
             <div class="image-container">
-                <img src="src/img/scSq.jpg" alt="Image" class="scimage">
+                <img src="src/img/soc/scSq.jpg" alt="Image" class="scimage">
             </div>
             <h1 class="user-text">SoundCloud</h1>
             <a href="https://soundcloud.com/shiroalol" class="scbutton">Shiroa</a>
@@ -85,13 +89,34 @@
 
         <div class="spbox">
             <div class="top-right">
-                <img src="src/img/sp.png" alt="Spotify" class="logo">
+                <img src="src/img/soc/sp.png" alt="Spotify" class="logo">
             </div>
             <div class="image-container">
-                <img src="src/img/spSq.jpg" alt="Image" class="spimage">
+                <img src="src/img/soc/spSq.jpg" alt="Image" class="spimage">
             </div>
             <h1 class="user-text">Spotify</h1>
             <a href="https://open.spotify.com/user/alaphkee" class="spbutton">Kyria</a>
         </div>
     </div>
+
+    <script>
+        const video = document.getElementById('bg-video');
+        const button = document.getElementById('pause-play-button');
+    
+        const pauseImage = document.getElementById('pause-image');
+        const playImage = document.getElementById('play-image');
+    
+        button.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                pauseImage.style.display = 'block';
+                playImage.style.display = 'none';
+            }
+            else {
+                video.pause();
+                pauseImage.style.display = 'none';
+                playImage.style.display = 'block';
+            }
+        });
+    </script>
 </body>
