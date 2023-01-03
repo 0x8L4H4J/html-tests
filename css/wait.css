@@ -2,6 +2,8 @@
     --purple: rgb(123, 31, 162);
     --violet: rgb(103, 58, 183);
     --pink: rgb(244, 143, 177);
+    --light-blue: #4169E1;
+    --darker-blue: #5D3FD3;
 }
 
 @keyframes background-pan {
@@ -50,9 +52,10 @@ h1 {
     font-family: "Rubik", sans-serif;
     font-size: clamp(2em, 2vw, 4em);
     font-weight: 400;
-    margin: 0px;
-    padding: 20px;
-    text-align: center;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 h1>.magic {
@@ -89,6 +92,32 @@ h1>.magic>.magic-text {
             var(--violet),
             var(--pink),
             var(--purple));
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+.subtext {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #B2BEB5;
+    font-family: "Rubik", sans-serif;
+    font-size: clamp(0.55em, 0.55vw, 1.25em);
+    font-weight: 400;
+    margin: 0px;
+    padding: 20px;
+    text-align: center;
+}
+
+.subtext>.discord {
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(to right,
+            var(--light-blue),
+            var(--darker-blue),
+            var(--light-blue));
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
