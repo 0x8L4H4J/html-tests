@@ -1,122 +1,30 @@
 <!DOCTYPE html>
-<html>
 
 <head>
-    <meta property="og:title" content="Blanche's Lovely Website <3">
-    <meta property="og:image" content="/embedBanner.jpg">
-    <meta property="og:description" content="Your favorite girl website! :D">
-    <link rel="icon" href="src/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Blanche's Lovely Website!</title>
+    <link rel="icon" type="image/png" href="src/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/socials.css">
-    <link rel="stylesheet" type="text/css" href="css/sky.css">
-    <title>Blanche's Lovely Website</title>
-    <style>
-
-    </style>
+    <script src="js/background.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/loading.js"></script>
 </head>
 
 <body>
-    <video id="bg-video" autoplay muted loop src="src/img/bgSky.mp4" poster="src/img/bgSkyPoster.png"></video>
-    <div id="pause-play-button">
-        <img id="pause-image" src="src/img/pause.png" alt="Pause button">
-        <img id="play-image" src="src/img/play.png" alt="Play button">
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <ab><img class="navlogo" src="src/img/favicon.ico" alt="Blanche's Logo"></ab>
-            </li>
-            <li><a href="https://blanche.dev/">Home</a></li>
-            <li><a href="https://blanche.dev/countdown.html">Countdown</a></li>
-            <li><a href="https://blanche.dev/socials.html">Socials</a></li>
-        </ul>
-    </nav>
+    <div id="loading-container">
+        <div class="loading-circle"></div>
+    </div>      
 
-    <div class="boxes-container">
-        <div class="twbox">
-            <div class="top-right">
-                <img src="src/img/soc/twt.png" alt="Twitter" class="logo">
-            </div>
-            <div class="image-container">
-                <img src="src/img/soc/pfpSq.jpg" alt="Image" class="twimage">
-            </div>
-            <h1 class="user-text">Twitter (Main)</h1>
-            <a href="https://twitter.com/soc/omori667" class="twbutton">@omori667</a>
-        </div>
-
-        <div class="twbox">
-            <div class="top-right">
-                <img src="src/img/soc/twt.png" alt="Twitter" class="logo">
-            </div>
-            <div class="image-container">
-                <img src="src/img/soc/pfpPrivSq.jpg" alt="Image" class="twimage">
-            </div>
-            <h1 class="user-text">Twitter (🔒)</h1>
-            <a href="https://twitter.com/omori668" class="twbutton">@omori668</a>
-        </div>
-
-        <div class="discbox">
-            <div class="top-right">
-                <img src="src/img/soc/discord.png" alt="Discord" class="logo">
-            </div>
-            <div class="image-container">
-                <img src="src/img/soc/pfpSq.jpg" alt="Image" class="discimage">
-            </div>
-            <h1 class="user-text">Omori#0667</h1>
-        </div>
-
-        <div class="igbox">
-            <div class="top-right">
-                <img src="src/img/soc/ig.png" alt="Instagram" class="logo">
-            </div>
-            <div class="image-container">
-                <img src="src/img/soc/igSq.jpg" alt="Image" class="igimage">
-            </div>
-            <h1 class="user-text">Instagram</h1>
-            <a href="https://instagram.com/@omori.ehe" class="igbutton">@omori.ehe</a>
-        </div>
-
-        <div class="scbox">
-            <div class="top-right">
-                <img src="src/img/soc/sc.png" alt="SoundCloud" class="logo">
-            </div>
-            <div class="image-container">
-                <img src="src/img/soc/scSq.jpg" alt="Image" class="scimage">
-            </div>
-            <h1 class="user-text">SoundCloud</h1>
-            <a href="https://soundcloud.com/shiroalol" class="scbutton">Shiroa</a>
-        </div>
-
-        <div class="spbox">
-            <div class="top-right">
-                <img src="src/img/soc/sp.png" alt="Spotify" class="logo">
-            </div>
-            <div class="image-container">
-                <img src="src/img/soc/spSq.jpg" alt="Image" class="spimage">
-            </div>
-            <h1 class="user-text">Spotify</h1>
-            <a href="https://open.spotify.com/user/alaphkee" class="spbutton">Kyria</a>
-        </div>
+    <div id="nav-container">
+        <script>document.write(getNavHTML());</script>
     </div>
 
+    <div id="bg-image"></div>
     <script>
-        const video = document.getElementById('bg-video');
-        const button = document.getElementById('pause-play-button');
-    
-        const pauseImage = document.getElementById('pause-image');
-        const playImage = document.getElementById('play-image');
-    
-        button.addEventListener('click', () => {
-            if (video.paused) {
-                video.play();
-                pauseImage.style.display = 'block';
-                playImage.style.display = 'none';
-            }
-            else {
-                video.pause();
-                pauseImage.style.display = 'none';
-                playImage.style.display = 'block';
-            }
-        });
+        window.onload = load();
+        randomBG();
     </script>
 </body>
+
+</html>
